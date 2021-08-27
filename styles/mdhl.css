@@ -1,0 +1,772 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/*----------- GENERAL STYLES ----------- */
+
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+:root{
+    --primary-color: rgb(0,106,101);
+    --secondary-color: rgb(253,232,29);
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+/*----------- HEADER -----------*/ 
+  
+header{
+    position:sticky;
+    background: var(--primary-color);
+    top: 0;
+    height: 7vh;
+    z-index: 3;
+}
+    
+header img{
+   display: none;
+}    
+
+/* Toggle de cierre y apertura*/
+
+#toggle{
+    display: none;
+    height: 5vh;
+}
+
+#toggle +label{
+    width: 10vw;
+    height: 7vh;
+
+    position: fixed;
+    z-index: 4;
+    
+
+    align-self: flex-start;
+    text-align: center;
+
+    background-color: var(--secondary-color);
+    color:var(--primary-color);
+    transition: .9s ease;
+    font-size: 2rem;  
+
+}
+
+/* Comportamiento del toggle al ser chequeado el label vinculado al checkbox */
+ #toggle:checked ~ nav{
+    width:102.4vw;
+    background-color: whitesmoke;
+    transform:translateX(0px);
+    transition: transform 0.8s ease-out;
+}
+#toggle:checked + label{
+    transform:translateX(395px);
+    transition: transform 0.5s ease;
+}
+#toggle:checked + #tog-open{
+    display: none;
+}
+#toggle:checked + label #tog-open{
+    display: none;
+}
+#tog-close{
+    display: none;
+}
+#toggle:checked + label #tog-close{
+    display: block;
+    position: absolute;
+    right: 2.5vw;
+    color:var(--primary-color);
+}
+
+/*----------- MENU BAR ----------- */
+
+nav{
+    /* box model */
+    background-color: var(--primary-color);
+    height: 100vh;
+    width:87vw;
+    /* position */
+    position: fixed;
+    top:0;
+    left:0;
+    /* display */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* misc */    
+    transform: translateX(-350px);
+    transition: transform 0.8s ease;
+    z-index: 3;
+}
+
+nav a{
+    height: 20vh;  
+    width: 85%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    background-color: var(--primary-color);
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color:whitesmoke;
+    transition: 0.4s;
+}  
+
+a.current:hover{
+    color: rgba(2, 2, 2, 0.438);
+    background-color:whitesmoke;
+    transition: 0.4s;      
+}
+a:hover{
+    color: rgba(2, 2, 2, 0.438);
+    background-color:whitesmoke;    
+    transition: 0.4s;       
+}
+
+/*----------- MAIN -----------*/ 
+
+main section{
+    margin-bottom:15%;
+    width: 100%;
+    height: 100%; 
+}
+
+main{
+    padding: 0;
+    margin: 10vh 1vh 2vh 2vh;
+    z-index: 1;
+    text-align: center;
+}
+h1{
+    margin: 2em 2em;
+}
+h2{
+    margin: 1em 2em;
+
+}
+h3{
+    margin-bottom: 1em;
+    margin-top:3em;
+
+    font-size: 4vh;
+    font-weight: 900;
+}
+p,.list{
+    padding: 1em 5em 1em 4em;
+    text-align: justify;
+    line-height: 2.5em;
+    font-size: 1em;
+}
+
+
+/*----------- FOOTER ----------- */
+#div-footer{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center; 
+}
+footer{
+    margin-bottom: 10vh;
+    width: 100%;
+    height: 5%; 
+    text-align: center; 
+    font-size: 1.5vh;  
+}
+
+/*-----------  RETURN LOGO STYLES ----------- */
+
+#return-logo{
+    height: 15vh;   
+    margin: 2vh 2vw;
+    max-height: 200px;
+    max-width: 200px;
+    
+    transform:rotate(-10deg);
+    transition: 1s; 
+    align-items: center;
+    background: none;
+
+}
+
+#return-logo:hover{
+    transform: rotate(360deg);
+    transition: 1s;
+    background: none;
+
+}
+#return-link{
+    align-self: center;
+    background: none;
+
+}
+
+/*----------- CONTACT PAGE SPECIFIC STYLES ----------- */
+
+.map-frame{
+    padding-left: 2em;
+    width: 90%;
+    height: 55vh;
+    border: none;
+}
+
+#mailStyle{
+    text-decoration:blue underline;
+    background-color: white;
+    color:blue;
+}
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------- SCHEDULE TABLE STYLES ----------- */
+
+#table-container{
+    display: flex;
+    flex-direction: column;
+}
+
+table,td,tr,thead{
+    padding: .5em 1.3em;
+}
+
+table{
+    margin: 1em 3em;
+    border: 0.3em solid var(--primary-color);
+    border-collapse: collapse;
+}
+thead{
+    background-color: var(--primary-color);
+    color:var(--secondary-color)
+}
+
+/*TBODY*/
+tbody tr{
+    text-align: center;
+    background-color: rgba(219, 233, 20, 0.438);
+}
+tbody tr:nth-child(2n){
+    background-color: rgba(135, 185, 16, 0.438);
+}
+tbody tr:hover{
+    background-color: rgba(16, 123, 185, 0.438);
+}
+.table-date{
+    background-color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: 900;
+}
+
+/* CAPTION*/
+table caption{
+    padding: 0.5em;
+    caption-side: top;
+    text-align: start;
+    font-size: 0.7em;
+    font-style:italic;
+    text-decoration: underline;
+}
+/*----------- HOVER MAP -----------*/
+
+.th-venue{
+    width: 7vw;
+}
+td.ubi {
+    display: flex;
+    flex-direction: column;
+    font-size: .8em;
+}  
+.drop-img {
+    width: 1.5vw;
+}
+ 
+/* I set the father of my map as relative, so I can set my map as absolute */
+.dropdown {
+    position: relative;
+}
+  /* I set the map position as absolute so I can see it in its absolute position over the table when the mouse pass through it */
+  /* Display is currently set as none, and changed to flex when hover */
+.dropdown-map {
+    position: absolute;
+    min-width: 20vw;
+    z-index: 1;
+    top: 10vh;   
+    left: -150px;;   
+    display: none;    
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    transition: 2s; 
+}
+  
+.dropdown:hover .dropdown-map {
+    align-items: center;
+    display: flex;
+    transition: 2s; 
+}
+  
+.dropdown-map iframe {
+    padding: 0.1vh 0.1vw;
+    height: 40vh;
+    width: 70vw;
+    border-radius: 10px;
+}
+  
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/*----------- RULES PAGE STYLES FOR LISTS -----------*/
+
+dt{
+    margin-bottom: 0.5em;
+    margin-top:1em;
+    font-size: 3vh;
+    font-weight: 900;
+}
+
+#group-list{
+    list-style-type: lower-latin;
+    list-style-position: inside;
+}
+#all-play-list{
+    list-style-type:circle;
+    list-style-position: inside;
+}
+.dl-home {
+    padding: 4rem;
+}
+ol,ul{
+    padding-left: .5em;
+}
+li{
+    padding-bottom: 1em;
+}
+
+/* ----------- REGISTRATION FORM STYLES -----------*/
+
+form{
+    margin: 10vh 10vw;
+}
+
+.form-section{
+    margin: 5vh 5vw;
+    max-width: 100%;
+}
+
+h4{
+    text-align: left;
+}
+.input{
+    margin: 1em 0em;
+    padding: 0 5em;
+}
+.address-input{
+    width: 45vw;
+}
+
+.left-field{
+    text-align:left;
+    max-width: 10%;
+}
+fieldset{
+    width: 70vw;
+    margin-bottom: 1em;
+    border: none;
+    padding: 2em 0em;
+    border-bottom: 5px double var(--primary-color);
+}
+fieldset > label{
+    margin: .5em;
+    margin-top: .5em;
+}
+.form-btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+.section-register{
+    margin-left: 2em;
+}
+.p-registration{
+    padding:0;
+}
+#signature-label{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.radio-flex{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+
+.radio-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.p-mobile{
+    padding: 1em;
+}
+
+.section-register * span {
+    margin-bottom: 1em;
+}
+.form-btn{
+    padding: 2vh 4vw;
+    margin: 0em 1em;
+    color: var(--primary-color);
+
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+
+    border: 4px solid var(--primary-color);
+    font-size: 1em;
+    font-weight: 900;
+    border-radius: 6px;
+    background: var(--secondary-color);
+	border-color: var(--secondary-color);
+    transition: all 0.4s ease 0s;
+}
+
+.form-btn:hover{
+    color:#ffffff !important;
+    background: var(--primary-color);
+	border-color: var(--primary-color) !important;
+    font-weight: 900;
+    font-size: 1em;
+    border-radius: 50px;
+    transition: all 0.4s ease 0s;
+}
+
+
+/* PANTALLA MEDIANA */
+
+
+@media screen and (min-width:455px){
+
+#toggle +label {
+    display: none;
+}   
+header{
+    position: static;      
+    height: 1vh;
+   
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    margin-top: 2vh;
+    
+    height: 3px;
+    box-shadow: 1px 1px 5px; 
+}
+    
+header > img{    
+    display: none;
+   
+}
+
+nav{
+    background-color: white;
+    position: sticky;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 2em;
+    z-index:3;
+    transform: none;
+    height: 0vh;
+}
+nav a{
+    background-color: var(--primary-color);
+    display: block;
+    text-align: center;
+    padding: 6vh 2vw;
+    height: 15vh;  
+    width:25vw;  
+    font-size: 2.5vh;
+    font-weight: bold;
+    color:whitesmoke;
+
+}
+a.current:link, a.current:visited {
+    background-color:rgb(19, 18, 18);
+    color:whitesmoke;    
+    transition: 0.4s;    
+}
+#return-link:hover{
+    background: none;
+}
+#return-link{
+    background: none;
+}
+nav a:hover{
+    width: 28vw;
+    font-size: 2.8vh; 
+    box-shadow: 1px 1px 5px;
+}
+
+
+}
+/* PANTALLA GRANDE */
+
+@media screen and (min-width:780px){
+    
+body{
+    width: 80%;
+    margin: 0 10%;
+}
+
+/*----------- MAIN -----------*/ 
+
+main{
+    margin-top: 10vh;
+    margin-bottom: 2vh;
+    background-color: white;
+}
+
+p,.list{
+    line-height: 2.5em;
+    font-size: 2.8vh;
+    padding: 1em 6em;
+}
+ 
+
+header{
+    position: static;
+    background-image: url(../assets/ducks.jpg);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    margin-top: 2vh;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 45vh;
+    box-shadow: 1px 1px 5px; 
+}
+    
+header > img{    
+    display: block;
+    top: 8vh;
+    left: 5em;
+    width: 60vw;
+    max-width: 400px;
+    max-height: 500px;
+    transform: rotate(-5deg);
+}
+
+
+
+/* REGISTRATION FORM */
+
+
+
+h4{
+    margin-top: 1em;
+    margin-right: 0.5em;
+}
+fieldset{
+    padding-top: 0.5em;
+    border: none;
+    border-top: 2px solid lightblue;
+}
+label{
+    padding-left: 0em;
+    width: 40%;
+    align-self:center;
+}
+.input{
+    width: 80%;
+    padding: .5em .5em;
+    margin: 2em 0em;
+}
+
+#birth_date.input-date{
+    width: 40%;
+}
+.address-input{
+    width: 5%;
+    padding-left: 0em;
+    text-align:left;
+}
+.address-input{
+    width: 85%;
+    padding: .5em .5em;
+    margin: 2em 0em;
+}
+.d-flex{
+    display: flex;
+    justify-content:space-between;
+}
+
+.section-register{
+    margin-left: -5em;
+    margin-top: 10em;
+}
+.radio-flex{
+    margin: 2em 0em;
+    justify-content:flex-start;
+}
+
+span{
+    font-weight: 900;
+}
+select{
+    margin-top:1em;
+    margin-left: 2em;
+    height: 2em;
+}
+.radio-flex label{
+    padding: 0em .5em;
+    width:7vw;
+    font-weight:normal;
+    font-style:italic;
+}
+
+.check-flex{
+    margin: 2em 0em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+
+#position-pad{
+    text-align: left;
+}
+
+.check-flex label{
+    width:15vw;
+    margin: 0.5em 1em;
+    font-weight:normal;
+    font-style:italic;
+}
+
+fieldset > p{
+    padding: 1em;
+}
+
+fieldset span{
+    margin-right: 2em;
+    margin-top: 1em;
+       
+}
+.left-field{
+    text-align:left;
+    max-width: 10%;
+}
+
+
+.parent-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.parent-flex-date{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#signature-label{
+    width: 70%;
+    margin-top: 1em;
+    border-top: none;
+    justify-content:flex-start;
+}
+
+#date-label{
+    margin-top: 1em;
+    width: 30%;
+    border-top: none;
+    justify-content:flex-start;
+}
+
+.signature_input_label{
+    padding: .5em .5em;
+    width: 35%;
+    text-align: center;
+}
+.parent-flex > label{
+    width: 25vw;
+    margin-right: 1em;
+}
+#signature-label{
+    display:unset;
+}
+.form-btn-div{
+    padding:5em 0em;
+    width: 100%;
+    justify-content: space-evenly;
+    border-top: none;
+    border-bottom: 2px solid lightblue;
+}
+
+.radio-div{
+    flex-direction: row;
+
+}
+
+.form-btn{
+    margin: 0em 3em;  
+
+}
+
+/* GAME INFO TABLE */
+
+th{
+   max-width: 25%;
+}
+
+/*----------- HOVER MAP -----------*/
+
+
+  /* I set the map position as absolute so I can see it in its absolute position over the table when the mouse pass through it */
+  /* Display is currently set as none, and changed to flex when hover */
+.dropdown-map {
+    top: 3vh;
+    left: 15vw;
+    display: none;    
+}
+  
+  
+.dropdown-map iframe {
+    height: 32vh;
+    width: 30vw;
+}
+.map-frame{
+    width: 80%;
+    height: 70vh;
+    padding-top: 4em;
+}
+
+}
+
+@media screen and (min-width:1900px){
+
+body{
+    background-color:rgb(12, 12, 20);
+}
+header, nav, main{
+    display: none;
+}
+footer{
+    height: 100vh;
+    color: whitesmoke;
+    font-weight: 900;
+}
+
+}
